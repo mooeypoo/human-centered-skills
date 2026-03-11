@@ -112,7 +112,7 @@ In RTL interfaces, navigation direction reverses.
 
 Better approach:
 
-Use dedicated icons for the Right to Left use case. Beware of mirroring icons, as not all icons should be flipped, and automatically mirroring icons can result with malformed iconography.
+Always use dedicated icons for RTL and LTR layouts. Do not mirror icons automatically, as not all icons should be flipped and this can result in malformed or misleading iconography. Design icons specifically for each direction as needed.
 
 ---
 
@@ -257,7 +257,7 @@ In RTL interfaces, navigation direction is reversed. A right-pointing arrow may 
 
 Better approach
 
-Mirror icons based on layout direction.
+Create dedicated icons based on layout direction. Where possible, use action-based or intent-based labels (such as "Next", "Back", "Submit") instead of physical direction terms (like "Left" or "Right"), as these are clearer and less likely to break in RTL contexts. Do not mirror icons automatically; design icons for each direction as needed.
 
 ---
 
@@ -376,7 +376,7 @@ Why It Matters
 In RTL languages, forward navigation typically points left.
 
 Suggested Improvement  
-Use mirrored icons or direction-aware icons.
+Use dedicated icons for each direction, not mirrored icons. Design icons specifically for RTL and LTR layouts to ensure clarity and intent.
 
 ---
 
