@@ -447,6 +447,31 @@ This gives translators full control over sentence structure without requiring co
 
 ### Missing Translation Fallback Strategy
 
+---
+
+### Color and Iconography Cultural Assumptions
+
+Example:
+```
+// Color usage
+button color: red (for delete)
+banner color: white (for celebration)
+
+// Icon usage
+thumbs-up icon for approval
+hand gestures for navigation or actions
+```
+
+**Risk**
+
+Colors and icons can have very different meanings across cultures. Red may signal danger in some countries but prosperity in others. White can mean purity or mourning. Hand gestures and icons (like thumbs-up, OK sign, or animals) may be offensive or misunderstood in some regions. Relying on culturally specific symbols can alienate or confuse users.
+
+**Better Approach**
+
+Research color and icon meanings for your target markets. Use culturally neutral symbols where possible, and test with local users. Allow for customization or localization of icons and color schemes in global products.
+
+---
+
 Example:
 ```
 // Translation key missing in target language
