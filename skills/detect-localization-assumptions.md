@@ -213,6 +213,27 @@ Allow users to explicitly choose their preferred language.
 
 ### English-Centric Pluralization
 
+---
+
+### Grammatical Gender in Translations
+
+Example:
+```
+t("invited_message", userName)
+// English: "{0} is invited"
+// French: "{0} est invité" (male), "{0} est invitée" (female)
+```
+
+**Risk**
+
+Many languages require different words, endings, or even sentence structures depending on the gender of the subject or object. If the translation system does not allow for gender variants, the result will be grammatically incorrect or awkward for many users.
+
+**Better Approach**
+
+Support gender-aware translation keys and pass gender metadata to the translation function. Use localization frameworks that support gender variants, and provide translators with context about the gender of variables.
+
+---
+
 Example:
 ```
 "You have " + count + " messages"
@@ -270,6 +291,26 @@ This excludes many writing systems used worldwide.
 
 ### Fixed Character Limits
 
+---
+
+### Phone Number Format Assumptions
+
+Example:
+```
+phone = input("Enter your phone number:")
+// Validation: must be 10 digits, format (XXX) XXX-XXXX
+```
+
+**Risk**
+
+Phone numbers vary in length, format, and allowed characters across countries. Hardcoding a single format or length will exclude many users. Some countries have variable-length numbers, require country codes, or use different separators.
+
+**Better Approach**
+
+Store phone numbers as strings or integers, allow for international formats, and use libraries (like libphonenumber) for validation and formatting. Always collect country code separately or as part of the number.
+
+---
+
 Example:
 ```
 username maxLength = 20
@@ -306,6 +347,31 @@ non-mandatory fields
 ---
 
 ### Left-To-Right Layout Assumptions
+
+---
+
+### CSS Logical vs Physical Properties
+
+Example:
+```
+// Physical properties (problematic for RTL)
+margin-left: 1em;
+padding-right: 2em;
+
+// Logical properties (RTL/LTR safe)
+margin-inline-start: 1em;
+padding-inline-end: 2em;
+```
+
+**Risk**
+
+Using physical CSS properties like `left`, `right`, `margin-left`, or `padding-right` hardcodes a left-to-right layout and breaks in right-to-left languages. This causes misaligned or unreadable interfaces for RTL users.
+
+**Better Approach**
+
+Use CSS logical properties (`margin-inline-start`, `padding-inline-end`, etc.) so layouts adapt automatically to text direction. This is essential for global-ready UIs.
+
+---
 
 Examples include:
 
@@ -376,6 +442,27 @@ This gives translators full control over sentence structure without requiring co
 ---
 
 ### Context-Blind Translation Reuse
+
+---
+
+### Missing Translation Fallback Strategy
+
+Example:
+```
+// Translation key missing in target language
+t("welcome_message")
+// UI shows: "welcome_message" or blank or crashes
+```
+
+**Risk**
+
+If a translation is missing, users may see raw keys, empty strings, or even application errors. This creates a poor or confusing experience, especially for non-English users.
+
+**Better Approach**
+
+Implement a fallback strategy: show a default language (often English), a clear placeholder, or a helpful error message. Monitor for missing translations and provide tools for translators to fill gaps quickly.
+
+---
 
 Example:
 ```
